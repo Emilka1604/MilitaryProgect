@@ -1,0 +1,16 @@
+{
+    "name": "Ф3С",
+    "main": "index.html",
+    "window": {
+        "width": 1924,
+        "height": 1080,
+        "fullscreen": false,
+        "title": "node-webkit demo",
+        "icon": "icon.png",
+        "toolbar": true,
+        "frame": true,
+        "kiosk": true,
+        "show_in_taskbar": true,
+        "resizable": true
+    }
+}

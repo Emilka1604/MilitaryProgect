@@ -1,0 +1,130 @@
+
+*,
+*::before,
+*::after
+    transition: all 0.1s ease-out
+
+.wrapper
+    display: flex
+    flex-direction: column
+    min-height: 100vh
+
+.main
+    background: url("../../fon.jpg") 0 0/100% 100% no-repeat
+    display: flex
+    justify-content: center
+    min-height: 100vh
+
+    &__body
+        flex: 1 1 auto
+        display: flex
+        justify-content: center
+        align-items: flex-start
+    &__menu
+        margin: 50px 0 0 0
+
+.menu
+    background-color: rgba(0,0,0,0.8)
+    flex: 0 1 1200px
+    &__list
+        display: flex
+        &>li
+            position: relative
+            &:last-child
+                margin-left: auto
+    &__link
+        padding: 10px 20px
+        display: block
+        &:hover
+            cursor: pointer
+            background-color: rgb(41, 110, 150)
+        span
+            color: #fff
+            font-family: Arial, Helvetica, sans-serif
+            line-height: 0
+            letter-spacing: 0.5px
+            font-size: 15px
+
+.sub-menu
+    &__list
+        position: absolute
+        top: 100%
+        left: 0
+        background-color: #fff
+        opacity: 0
+        visibility: hidden
+        min-width: 100%
+
+        &_two, &_three
+            width: 240px
+
+        &_one
+            & .sub-sub-menu__list
+                width: 240px
+
+        &._active
+            opacity: 1
+            visibility: visible
+
+        &>li
+            position: relative
+            display: block
+
+    &__link
+        position: relative
+        cursor: pointer
+        display: block
+        padding: 10px 20px 15px 10px
+
+        &:hover
+            background-color: rgb(240, 230, 206)
+
+            &::before
+                display: block
+        &::before
+            content: ""
+            position: absolute
+            left: 0
+            top: 0
+            height: 100%
+            width: 5px
+            background-color: rgb(41, 110, 150)
+            display: none
+        span
+            font-family: Arial, Helvetica, sans-serif
+            font-size: 12px
+            color: #000
+
+.sub-sub-menu
+    &__list
+        position: absolute
+        top: 0
+        left: 100%
+        background-color: #fff
+        opacity: 0
+        visibility: hidden
+        &._active
+            opacity: 1
+            visibility: visible
+    &__link
+        display: block
+        padding: 10px 35px 15px 10px
+        position: relative
+        &:hover
+            background-color: rgb(240, 230, 206)
+
+            &::before
+                display: block
+        &::before
+            content: ""
+            position: absolute
+            left: 0
+            top: 0
+            height: 100%
+            width: 5px
+            background-color: rgb(41, 110, 150)
+            display: none
+        span
+            color: #000
+            font-family: Arial, Helvetica, sans-serif
+            font-size: 12px
