@@ -17,7 +17,7 @@
 }
 
 .main {
-  background: url("../../fon.jpg") 0 0/100% 100% no-repeat;
+  background-color: grey;
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;

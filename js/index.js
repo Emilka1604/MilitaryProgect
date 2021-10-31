@@ -1,4 +1,7 @@
 {
+
+
+
     $(".menu__list > li").on({
         "mouseover": function () {
             $(this).find(".sub-menu__list").addClass("_active")
@@ -17,9 +20,26 @@
         }
     })
 
+
+    $('a[anchor]').on('click', function (e) {
+        e.preventDefault();
+        localStorage.setItem("anchor", $(this).attr('anchor'));
+        window.location.href = $(this).attr('href')
+    })
+
+    $('a[mode]').on('click', function (e) {
+        e.preventDefault();
+        localStorage.setItem("mode", $(this).attr('mode'));
+        window.location.href = $(this).attr('href')
+    })
+
     $('#exit').on('click', () => {
         require('nw.gui').App.quit()
     })
+
+
+
+
 }
 
 
