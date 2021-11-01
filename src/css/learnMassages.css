@@ -15,6 +15,7 @@
   pointer-events: none;
   -webkit-transition: all 0.5s linear;
   transition: all 0.5s linear;
+  z-index: 2;
 }
 
 .learnMassage._active {

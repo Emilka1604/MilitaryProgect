@@ -21,19 +21,7 @@ let constructFunction = function () {
 let mode = localStorage.getItem("mode");
 
 
-let activeControlElements = new Array(17).fill(true)
 
-let queue = [1, 2, 7, 9, 13, 15, 11, 16]
-let stepQueue = new StepQueue(queue)
-
-let main = new Main(activeControlElements, constructFunction)
-main.control = "dist"
-main.voltage = "off"
-main.dampers = "open"
-main.ventilation = "off"
-main.funcInvoke()
-
-let popup = new Popup()
 
 
 
@@ -49,10 +37,38 @@ if (mode === "learn") {
 
     let scrollParameter = 400
 
+    let activeControlElements = new Array(17).fill(false)
+
+    let queue = [1, 2, 7, 9, 13, 15, 11, 16]
+    let stepQueue = new StepQueue(queue)
+
+    let main = new Main(activeControlElements, constructFunction)
+    main.control = "dist"
+    main.voltage = "off"
+    main.dampers = "open"
+    main.ventilation = "off"
+    main.funcInvoke()
+
+    let popup = new Popup()
+
     let learnMode = new LearnMode(main, stepQueue, learnMassages, scrollParameter, popup)
     learnMode.mainSequence()
 }
 else {
+
+    let activeControlElements = new Array(17).fill(true)
+
+    let queue = [1, 2, 7, 9, 13, 15, 11, 16]
+    let stepQueue = new StepQueue(queue)
+
+    let main = new Main(activeControlElements, constructFunction)
+    main.control = "dist"
+    main.voltage = "off"
+    main.dampers = "open"
+    main.ventilation = "off"
+    main.funcInvoke()
+
+    let popup = new Popup()
 
     let controlMode = new ControlMode(main, stepQueue, popup)
     controlMode.mainSequence()

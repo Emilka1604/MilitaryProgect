@@ -1,5 +1,5 @@
 class Elem {
-    constructor(id, img, state, styles, parentBlock) {
+    constructor(id, img, state, styles) {
         this.id = id
         this.img = img
         this.state = state
@@ -8,8 +8,9 @@ class Elem {
     }
 
     initElem() {
-        $('.img-body').append(`<img class="elem" id=${this.id} src=${this.img[this.state]}>`)
+        $('.img-body').append(`<img class="elem" id=${this.id} src="">`)
         $(`#${this.id}`).css(this.styles)
+        this.setState(this.state)
     }
 
 
@@ -19,3 +20,27 @@ class Elem {
     }
 
 }
+
+class Anvil {
+    constructor(id, img, rotate, state, styles) {
+        this.id = id
+        this.img = img
+        this.rotate = rotate
+        this.state = state
+        this.styles = styles
+        this.initElem()
+    }
+
+    initElem() {
+        $('.img-body').append(`<img class="elem" id=${this.id} src=${this.img}>`)
+        $(`#${this.id}`).css(this.styles)
+        this.setState(this.state)
+    }
+
+
+    setState(state) {
+        this.state = state
+        $(`#${this.id}`).css('transform', `rotate(${this.rotate[state]})`)
+    }
+}
+

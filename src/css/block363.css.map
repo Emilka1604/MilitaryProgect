@@ -1,6 +1,6 @@
 {
     "version": 3,
-    "mappings": "AACA,AAAA,UAAU,CAAC;EACP,SAAS,EAAE,KAAK;CAAG;;AAEvB,AAAA,YAAY,CAAC;EACT,KAAK,EAAE,IAAI;EACX,GAAG,EAAE,KAAK;EACV,IAAI,EAAE,KAAK;CAAG",
+    "mappings": "AACA,AAAA,UAAU,CAAC;EACP,SAAS,EAAE,KAAK;CAAG",
     "sources": [
         "../../practice/block363/sass/block363.sass"
     ],
