@@ -38,11 +38,10 @@ if (mode === "learn") {
     let main = new Main(activeControlElements, constructFunction)
     main.funcInvoke()
 
-    let popup = new Popup()
 
     let stepQueue = new StepQueue([1, 2, 12, 16])
 
-    let learnMode = new LearnMode(main, stepQueue, learnMassages, scrollParameter, popup)
+    let learnMode = new LearnMode(main, stepQueue, learnMassages, scrollParameter)
     learnMode.mainSequence()
 }
 else {
@@ -52,11 +51,9 @@ else {
     let main = new Main(activeControlElements, constructFunction)
     main.funcInvoke()
 
-    let popup = new Popup()
-
     let stepQueue = new StepQueue([1, 2, 12, 16])
 
-    let controlMode = new ControlMode(main, stepQueue, popup)
+    let controlMode = new ControlMode(main, stepQueue)
     controlMode.mainSequence()
     controlMode.errorMassage()
 }

@@ -49,9 +49,8 @@ if (mode === "learn") {
     main.ventilation = "off"
     main.funcInvoke()
 
-    let popup = new Popup()
 
-    let learnMode = new LearnMode(main, stepQueue, learnMassages, scrollParameter, popup)
+    let learnMode = new LearnMode(main, stepQueue, learnMassages, scrollParameter)
     learnMode.mainSequence()
 }
 else {
@@ -68,9 +67,8 @@ else {
     main.ventilation = "off"
     main.funcInvoke()
 
-    let popup = new Popup()
 
-    let controlMode = new ControlMode(main, stepQueue, popup)
+    let controlMode = new ControlMode(main, stepQueue)
     controlMode.mainSequence()
     controlMode.errorMassage()
 }

@@ -1,8 +1,8 @@
 class ControlMode {
-    constructor(main, stepQueue, popup) {
+    constructor(main, stepQueue) {
         this.main = main
         this.stepQueue = stepQueue
-        this.popup = popup
+        this.popup = new Popup()
     }
 
     async mainSequence() {

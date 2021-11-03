@@ -1,10 +1,10 @@
 class LearnMode {
-    constructor(main, stepQueue, learnMassages, scrollParameter, popup) {
+    constructor(main, stepQueue, learnMassages, scrollParameter) {
         this.main = main
         this.stepQueue = stepQueue
         this.scrollParameter = scrollParameter
         this.learnMassages = learnMassages
-        this.popup = popup
+        this.popup = new Popup()
 
         for (let i = 0; i < this.stepQueue.getQueue().length; ++i) {
             $(`#controlElement${this.stepQueue.getQueue()[i]}`).

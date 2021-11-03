@@ -12,7 +12,7 @@ let constructFunction = function () {
         this.buttons.set(`button${i}`, new Elem(`button${i}`, { "0": `img/button${[0, 1, 2].includes(i) ? 1 : i - 1}.png` }, "0",
             { "top": `${coordsButtons[i][0]}`, "left": `${coordsButtons[i][1]}`, "max-width": `${coordsButtons[i][2]}` }))
     }
-    this.anvils.set('anvil0', new Anvil('anvil0', 'img/anvil.png', { "0": "0deg", "1": "35deg", "2": "90deg", "3": "145deg", "4": "180deg" }, "1",
+    this.anvils.set('anvil0', new Anvil('anvil0', '../img/anvil.png', { "0": "0deg", "1": "35deg", "2": "90deg", "3": "145deg", "4": "180deg" }, "1",
         { "top": `${coordsAnvils[0][0]}`, "left": `${coordsAnvils[0][1]}`, "max-width": `${coordsAnvils[0][2]}` }))
 
     for (let i = 0; i < coordsControlElems.length; i++) {
@@ -45,11 +45,9 @@ if (mode === "learn") {
     let main = new Main(activeControlElements, constructFunction)
     main.funcInvoke()
 
-    let popup = new Popup()
-
     let stepQueue = new StepQueue([1, 2])
 
-    let learnMode = new LearnMode(main, stepQueue, learnMassages, scrollParameter, popup)
+    let learnMode = new LearnMode(main, stepQueue, learnMassages, scrollParameter)
     learnMode.mainSequence()
 }
 else {
@@ -59,11 +57,10 @@ else {
     let main = new Main(activeControlElements, constructFunction)
     main.funcInvoke()
 
-    let popup = new Popup()
 
     let stepQueue = new StepQueue([1, 2])
 
-    let controlMode = new ControlMode(main, stepQueue, popup)
+    let controlMode = new ControlMode(main, stepQueue)
     controlMode.mainSequence()
     controlMode.errorMassage()
 }
