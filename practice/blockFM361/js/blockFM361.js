@@ -55,50 +55,6 @@ class Main {
                 }
             },
 
-            "anvil1":
-            {
-                "0": () => {
-
-                },
-
-                "1": () => {
-
-                },
-
-                "2": () => {
-
-
-                },
-
-                "3": () => {
-
-                },
-
-                "4": () => {
-
-
-                },
-
-                "5": () => {
-
-                },
-
-                "6": () => {
-
-
-                },
-
-                "7": () => {
-
-                },
-
-                "8": () => {
-
-
-                }
-            }
-
-
 
         }
     }
@@ -114,7 +70,7 @@ class Main {
     controlElement0Click() {
         $("#controlElement0").on('click', () => {
             if (this.getControlElementState(0)) {
-
+                this.tumblers.get('tumbler0').setState("0")
             }
         })
     }
@@ -123,7 +79,6 @@ class Main {
         $("#controlElement1").on('click', () => {
             if (this.getControlElementState(1)) {
                 this.tumblers.get('tumbler0').setState("1")
-                this.obj["tumbler0"]["1"]()
             }
         })
     }
@@ -131,8 +86,7 @@ class Main {
     controlElement2Click() {
         $("#controlElement2").on('click', () => {
             if (this.getControlElementState(2)) {
-                this.tumblers.get('tumbler0').setState("0")
-                this.obj["tumbler0"]["0"]()
+
             }
         })
     }
@@ -149,7 +103,7 @@ class Main {
     controlElement4Click() {
         $("#controlElement4").on('click', () => {
             if (this.getControlElementState(4)) {
-                this.anvils.get('anvil0').setState("0")
+                this.anvils.get('anvil0').setState("1")
             }
         })
     }
@@ -157,7 +111,7 @@ class Main {
     controlElement5Click() {
         $("#controlElement5").on('click', () => {
             if (this.getControlElementState(5)) {
-                this.anvils.get('anvil0').setState("1")
+                this.anvils.get('anvil0').setState("2")
             }
         })
     }
@@ -166,7 +120,7 @@ class Main {
     controlElement6Click() {
         $("#controlElement6").on('click', () => {
             if (this.getControlElementState(6)) {
-                this.anvils.get('anvil0').setState("2")
+                this.anvils.get('anvil0').setState("3")
             }
         })
     }
@@ -174,7 +128,7 @@ class Main {
     controlElement7Click() {
         $("#controlElement7").on('click', () => {
             if (this.getControlElementState(7)) {
-                this.anvils.get('anvil0').setState("3")
+                this.anvils.get('anvil0').setState("4")
             }
         })
     }
@@ -182,7 +136,7 @@ class Main {
     controlElement8Click() {
         $("#controlElement8").on('click', () => {
             if (this.getControlElementState(8)) {
-                this.anvils.get('anvil0').setState("4")
+                this.anvils.get('anvil0').setState("5")
             }
         })
     }
@@ -190,7 +144,7 @@ class Main {
     controlElement9Click() {
         $("#controlElement9").on('click', () => {
             if (this.getControlElementState(9)) {
-                this.anvils.get('anvil0').setState("5")
+                this.tumblers.get('tumbler1').setState("1")
             }
         })
     }
@@ -198,7 +152,7 @@ class Main {
     controlElement10Click() {
         $("#controlElement10").on('click', () => {
             if (this.getControlElementState(10)) {
-                this.anvils.get('anvil0').setState("6")
+                this.tumblers.get('tumbler1').setState("0")
             }
         })
     }
@@ -206,7 +160,7 @@ class Main {
     controlElement11Click() {
         $("#controlElement11").on('click', () => {
             if (this.getControlElementState(11)) {
-                this.anvils.get('anvil1').setState("0")
+                this.tumblers.get('tumbler2').setState("0")
             }
         })
     }
@@ -214,7 +168,7 @@ class Main {
     controlElement12Click() {
         $("#controlElement12").on('click', () => {
             if (this.getControlElementState(12)) {
-                this.anvils.get('anvil1').setState("1")
+                this.tumblers.get('tumbler2').setState("1")
             }
         })
     }
@@ -222,7 +176,7 @@ class Main {
     controlElement13Click() {
         $("#controlElement13").on('click', () => {
             if (this.getControlElementState(13)) {
-                this.anvils.get('anvil1').setState("2")
+                this.tumblers.get('tumbler3').setState("1")
             }
         })
     }
@@ -230,7 +184,7 @@ class Main {
     controlElement14Click() {
         $("#controlElement14").on('click', () => {
             if (this.getControlElementState(14)) {
-                this.anvils.get('anvil1').setState("3")
+                this.tumblers.get('tumbler3').setState("0")
             }
         })
     }
@@ -238,42 +192,11 @@ class Main {
     controlElement15Click() {
         $("#controlElement15").on('click', () => {
             if (this.getControlElementState(15)) {
-                this.anvils.get('anvil1').setState("4")
+
             }
         })
     }
 
-    controlElement16Click() {
-        $("#controlElement16").on('click', () => {
-            if (this.getControlElementState(16)) {
-                this.anvils.get('anvil1').setState("5")
-            }
-        })
-    }
-
-    controlElement17Click() {
-        $("#controlElement17").on('click', () => {
-            if (this.getControlElementState(17)) {
-                this.anvils.get('anvil1').setState("6")
-            }
-        })
-    }
-
-    controlElement18Click() {
-        $("#controlElement16").on('click', () => {
-            if (this.getControlElementState(18)) {
-                this.anvils.get('anvil1').setState("7")
-            }
-        })
-    }
-
-    controlElement19Click() {
-        $("#controlElement17").on('click', () => {
-            if (this.getControlElementState(19)) {
-                this.anvils.get('anvil1').setState("8")
-            }
-        })
-    }
 
     funcInvoke() {
         this.controlElement1Click()
@@ -292,10 +215,6 @@ class Main {
         this.controlElement13Click()
         this.controlElement14Click()
         this.controlElement15Click()
-        this.controlElement16Click()
-        this.controlElement17Click()
-        this.controlElement18Click()
-        this.controlElement19Click()
     }
 
 
