@@ -2,16 +2,12 @@
 let constructFunction = function () {
     for (let i = 0; i < coordsLamps.length; i++) {
         this.lamps.set(`lamp${i}`, new Elem(`lamp${i}`, { "0": "../img/off_lamp.png", "1": setActiveLampColor(i) },
-            [0, 1, 2, 4].includes(i) ? "1" : "0", { "top": `${coordsLamps[i][0]}`, "left": `${coordsLamps[i][1]}`, "max-width": `${coordsLamps[i][2]}` }))
+            [0,].includes(i) ? "1" : "0", { "top": `${coordsLamps[i][0]}`, "left": `${coordsLamps[i][1]}`, "max-width": `${coordsLamps[i][2]}` }))
     }
     for (let i = 0; i < coordsTumblers.length; i++) {
-        if (i === 0) continue
         this.tumblers.set(`tumbler${i}`, new Elem(`tumbler${i}`, setTumblerKind(i),
-            [3,].includes(i) ? "0" : "1", { "top": `${coordsTumblers[i][0]}`, "left": `${coordsTumblers[i][1]}`, "max-width": `${coordsTumblers[i][2]}` }))
+            0, { "top": `${coordsTumblers[i][0]}`, "left": `${coordsTumblers[i][1]}`, "max-width": `${coordsTumblers[i][2]}` }))
     }
-
-    this.tumblers.set(`tumbler${0}`, new Elem(`tumbler${0}`, { "0": "../img/left_tumbler.png", "1": "../img/left_tumbler.png", "2": "../img/left_tumbler.png" },
-        "0", { "top": `${coordsTumblers[0][0]}`, "left": `${coordsTumblers[0][1]}`, "max-width": `${coordsTumblers[0][2]}` }))
 
     for (let i = 0; i < coordsButtons.length; i++) {
         this.buttons.set(`button${i}`, new Elem(`button${i}`, { "0": "../img/button.png" }, "0", { "top": `${coordsButtons[i][0]}`, "left": `${coordsButtons[i][1]}`, "max-width": `${coordsButtons[i][2]}` }))
@@ -28,38 +24,40 @@ let constructFunction = function () {
     }
 }
 
+
+
 let mode = localStorage.getItem("mode");
 
 
 if (mode === "learn") {
-    let learnMassages = ["Переключатель ВКЛ-ВЫКЛ-ДИСТ в положение ВКЛ",
-        "Переключатель КОНТРОЛЬ ЯЧЕЕК (ВЫКЛ-У1…У6) – в положение ВЫКЛ",
-        "Тумблер РАЗР ПОДСТР – в положение ВЫКЛ",
-        "Тумблер РЕЖИМ – в положение «2»",
-        "Тумблер ВКЛ ИНД – в положение ВКЛ"]
+    let learnMassages = ["Переключатель КОНТРОЛЬ ЯЧЕЕК (ВЫКЛ-У1…РУ) – в положение ВЫКЛ",
+        "Переключатель КОНТРОЛЬ ЯЧЕЕК (ВЫКЛ-У13…У21) – в положение ВЫКЛ",
+        "Переключатель КОНТРОЛЬ ЯЧЕЕК (СИНХР-У25…У37) – в положение СИНХР",
+        "Переключатель ФАЗА – в положение β",
+        "Тумблер УСТ ФАЗЫ – в положение 90"]
 
 
     let scrollParameter = 400
 
-    let activeControlElements = new Array(17).fill(false)
+    let activeControlElements = new Array(48).fill(true)
 
     let main = new Main(activeControlElements, constructFunction)
     main.funcInvoke()
 
 
-    let stepQueue = new StepQueue([1, 3, 10, 11, 13])
+    let stepQueue = new StepQueue([1, 13, 21, 31, 39])
 
     let learnMode = new LearnMode(main, stepQueue, learnMassages, scrollParameter)
     learnMode.mainSequence()
 }
 else {
 
-    let activeControlElements = new Array(17).fill(true)
+    let activeControlElements = new Array(48).fill(true)
 
     let main = new Main(activeControlElements, constructFunction)
     main.funcInvoke()
 
-    let stepQueue = new StepQueue([1, 3, 10, 11, 13])
+    let stepQueue = new StepQueue([1, 13, 21, 31, 39])
 
     let controlMode = new ControlMode(main, stepQueue)
     controlMode.mainSequence()

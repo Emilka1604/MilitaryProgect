@@ -42,7 +42,8 @@ const coordsControlElems = [["168px", "348px", "50px", "30px"],
 ["690px", "490px", "50px", "30px"],
 ["1080px", "270px", "80px", "30px"],
 ["1165px", "285px", "50px", "30px"],
-["1110px", "430px", "50px", "50px"],]
+["1110px", "430px", "50px", "50px"],
+["120px", "423px", "50px", "30px"]]
 
 
 function setActiveLampColor(i) {

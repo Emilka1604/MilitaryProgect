@@ -71,6 +71,7 @@ class Main {
         $("#controlElement0").on('click', () => {
             if (this.getControlElementState(0)) {
                 this.tumblers.get('tumbler0').setState("0")
+                $('#tumbler0').css({ 'transform': 'rotate(0deg)' })
             }
         })
     }
@@ -79,6 +80,7 @@ class Main {
         $("#controlElement1").on('click', () => {
             if (this.getControlElementState(1)) {
                 this.tumblers.get('tumbler0').setState("1")
+                $('#tumbler0').css({ 'transform': 'rotate(180deg)' })
             }
         })
     }
@@ -197,6 +199,15 @@ class Main {
         })
     }
 
+    controlElement16Click() {
+        $("#controlElement16").on('click', () => {
+            if (this.getControlElementState(16)) {
+                this.tumblers.get('tumbler0').setState("2")
+                $('#tumbler0').css({ 'transform': 'rotate(90deg)' })
+            }
+        })
+    }
+
 
     funcInvoke() {
         this.controlElement1Click()
@@ -215,6 +226,7 @@ class Main {
         this.controlElement13Click()
         this.controlElement14Click()
         this.controlElement15Click()
+        this.controlElement16Click()
     }
 
 
