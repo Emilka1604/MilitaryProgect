@@ -12,15 +12,15 @@ class Popup {
         await new Promise(r => {
             setTimeout(() => {
                 this.popup.addClass('_active')
+                r()
             }, ms)
-            r()
         })
 
         await new Promise(r => {
             setTimeout(() => {
                 this.popupBody.addClass('_active')
+                r()
             }, 300)
-            r()
         })
 
     }
