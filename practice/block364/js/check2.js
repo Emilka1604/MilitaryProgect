@@ -35,27 +35,21 @@ if (mode === "learn") {
 
     let scrollParameter = 400
 
-    let activeControlElements = new Array(17).fill(false)
-
     let queue = [1, 2, 16, 5, 6, 8]
     let stepQueue = new StepQueue(queue)
 
-    let main = new Main(activeControlElements, constructFunction)
-    main.funcInvoke()
-
+    let main = new Main(constructFunction)
 
     let learnMode = new LearnMode(main, stepQueue, learnMassages, scrollParameter)
     learnMode.mainSequence()
 }
 else {
 
-    let activeControlElements = new Array(17).fill(true)
 
     let queue = [1, 2, 16, 5, 6, 8]
     let stepQueue = new StepQueue(queue)
 
-    let main = new Main(activeControlElements, constructFunction)
-    main.funcInvoke()
+    let main = new Main(constructFunction)
 
 
     let controlMode = new ControlMode(main, stepQueue)

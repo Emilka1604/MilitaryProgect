@@ -2,21 +2,39 @@
 
 
 
-    $(".menu__list > li").on({
-        "mouseover": function () {
-            $(this).find(".sub-menu__list").addClass("_active")
-        },
-        "mouseout": function () {
-            $(this).find(".sub-menu__list").removeClass("_active")
-        }
-    })
+    // $(".menu__list > li").on({
+    //     "mouseover": function () {
+    //         $(this).find(".sub-menu__list").addClass("_active")
+    //     },
+    //     "mouseout": function () {
+    //         $(this).find(".sub-menu__list").removeClass("_active")
+    //     }
+    // })
 
-    $(".sub-menu__list > li").on({
+    // $(".sub-menu__list > li").on({
+    //     "mouseover": function () {
+    //         $(this).find(".sub-sub-menu__list").addClass("_active")
+    //     },
+    //     "mouseout": function () {
+    //         $(this).find(".sub-sub-menu__list").removeClass("_active")
+    //     }
+    // })
+
+    // $(".sub-sub-menu__list > li").on({
+    //     "mouseover": function () {
+    //         $(this).find(".sub-sub-sub-menu__list").addClass("_active")
+    //     },
+    //     "mouseout": function () {
+    //         $(this).find(".sub-sub-sub-menu__list").removeClass("_active")
+    //     }
+    // })
+
+    $("ul>li").on({
         "mouseover": function () {
-            $(this).find(".sub-sub-menu__list").addClass("_active")
+            $(this).children("ul").addClass("_active")
         },
         "mouseout": function () {
-            $(this).find(".sub-sub-menu__list").removeClass("_active")
+            $(this).children("ul").removeClass("_active")
         }
     })
 

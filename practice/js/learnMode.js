@@ -5,7 +5,6 @@ class LearnMode {
         this.scrollParameter = scrollParameter
         this.learnMassages = learnMassages
         this.popup = new Popup()
-
         for (let i = 0; i < this.stepQueue.getQueue().length; ++i) {
             $(`#controlElement${this.stepQueue.getQueue()[i]}`).
                 append(`<div id="learnMassage${this.stepQueue.getQueue()[i]}" class="learnMassage">${this.learnMassages[i]}</div>`)
@@ -26,21 +25,23 @@ class LearnMode {
                 $('body').animate({
                     scrollTop: currentScrollTop
                 }, 1300, () => {
-                    this.controlElemOn(numberOfControlElem, currentControlElem, currentLearnMassage)
+                    this.controlElemOn(currentControlElem, currentLearnMassage)
                 })
             }
             else {
-                this.controlElemOn(numberOfControlElem, currentControlElem, currentLearnMassage)
+                this.controlElemOn(currentControlElem, currentLearnMassage)
             }
+
+
 
             await new Promise(resolve => {
                 currentControlElem.one('click', (event) => {
-                    this.controlElemOff(numberOfControlElem, currentControlElem, currentLearnMassage)
-                    setTimeout(() => resolve(), 1000)
+                    this.controlElemOff(currentControlElem, currentLearnMassage)
+                    let controlElemClick = eval(`this.main.controlElement${numberOfControlElem}Click.bind(this.main)`)
+                    controlElemClick().then(() => setTimeout(() => resolve(), 1000))
                 })
-            })
+            }).then(() => this.stepQueue.nextStep())
 
-            this.stepQueue.nextStep()
 
         }
 
@@ -48,14 +49,12 @@ class LearnMode {
 
     }
 
-    controlElemOn(numberOfControlElem, currentControlElem, currentLearnMassage) {
-        this.main.setControlElementState(numberOfControlElem, true)
+    controlElemOn(currentControlElem, currentLearnMassage) {
         currentControlElem.addClass('_active')
         currentLearnMassage.addClass('_active')
     }
 
-    controlElemOff(numberOfControlElem, currentControlElem, currentLearnMassage) {
-        this.main.setControlElementState(numberOfControlElem, false)
+    controlElemOff(currentControlElem, currentLearnMassage) {
         currentControlElem.removeClass('_active')
         currentLearnMassage.removeClass('_active')
     }

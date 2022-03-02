@@ -37,17 +37,15 @@ if (mode === "learn") {
 
     let scrollParameter = 400
 
-    let activeControlElements = new Array(17).fill(false)
 
-    let queue = [1, 2, 7, 9, 13, 15, 11, 16]
+    let queue = [1, 7, 9, 13, 15, 11, 16, 2]
     let stepQueue = new StepQueue(queue)
 
-    let main = new Main(activeControlElements, constructFunction)
+    let main = new Main(constructFunction)
     main.control = "dist"
     main.voltage = "off"
     main.dampers = "open"
     main.ventilation = "off"
-    main.funcInvoke()
 
 
     let learnMode = new LearnMode(main, stepQueue, learnMassages, scrollParameter)
@@ -55,17 +53,15 @@ if (mode === "learn") {
 }
 else {
 
-    let activeControlElements = new Array(17).fill(true)
 
-    let queue = [1, 2, 7, 9, 13, 15, 11, 16]
+    let queue = [1, 7, 9, 13, 15, 11, 16, 2]
     let stepQueue = new StepQueue(queue)
 
-    let main = new Main(activeControlElements, constructFunction)
+    let main = new Main(constructFunction)
     main.control = "dist"
     main.voltage = "off"
     main.dampers = "open"
     main.ventilation = "off"
-    main.funcInvoke()
 
 
     let controlMode = new ControlMode(main, stepQueue)

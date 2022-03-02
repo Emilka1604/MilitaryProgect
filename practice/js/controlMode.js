@@ -24,6 +24,8 @@ class ControlMode {
     handlingControlElemNum(currentQueueElem) {
         return new Promise(resolve => {
             $(`#controlElement${currentQueueElem}`).one('click', () => {
+                let controlElemClick = eval(`this.main.controlElement${currentQueueElem}Click.bind(this.main)`)
+                controlElemClick()
                 resolve()
             })
         })
@@ -36,6 +38,8 @@ class ControlMode {
                 $(`#controlElement${numberOfControlElem}`).one('click', (event) => {
                     ++clickCount
                     if (clickCount === currentQueueElem.length) {
+                        let controlElemClick = eval(`this.main.controlElement${numberOfControlElem}Click.bind(this.main)`)
+                        controlElemClick()
                         resolve()
                     }
                 })

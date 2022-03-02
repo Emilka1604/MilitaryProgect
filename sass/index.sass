@@ -103,6 +103,11 @@
         background-color: #fff
         opacity: 0
         visibility: hidden
+        &_third
+            width: 100px
+        &>li
+            position: relative
+            display: block
         &._active
             opacity: 1
             visibility: visible
@@ -110,6 +115,46 @@
         display: block
         padding: 10px 35px 15px 10px
         position: relative
+        cursor: pointer
+        &:hover
+            background-color: rgb(240, 230, 206)
+
+            &::before
+                display: block
+        &::before
+            content: ""
+            position: absolute
+            left: 0
+            top: 0
+            height: 100%
+            width: 5px
+            background-color: rgb(41, 110, 150)
+            display: none
+        span
+            color: #000
+            font-family: Arial, Helvetica, sans-serif
+            font-size: 12px
+
+.sub-sub-sub-menu
+    &__list
+        position: absolute
+        top: 0
+        left: 100%
+        background-color: #fff
+        opacity: 0
+        visibility: hidden
+
+        &>li
+            position: relative
+            display: block
+        &._active
+            opacity: 1
+            visibility: visible
+    &__link
+        display: block
+        padding: 10px 35px 15px 10px
+        position: relative
+        cursor: pointer
         &:hover
             background-color: rgb(240, 230, 206)
 

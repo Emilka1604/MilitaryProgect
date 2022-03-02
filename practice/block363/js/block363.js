@@ -2,13 +2,12 @@
 
 
 class Main {
-    constructor(activeControlElements, constructFunction) {
+    constructor(constructFunction) {
         this.lamps = new Map()
         this.tumblers = new Map()
         this.buttons = new Map()
         this.anvils = new Map()
         this.controlElements = new Map()
-        this.activeControlElements = activeControlElements
         constructFunction.call(this)
         this.voltage = "on"
         this.obj = {
@@ -64,80 +63,41 @@ class Main {
         }
     }
 
-    getControlElementState(i) {
-        return this.activeControlElements[i]
+
+    async controlElement0Click() {
+        this.tumblers.get('tumbler0').setState("1")
+        this.obj["tumbler0"]["1"]()
     }
 
-    setControlElementState(i, value) {
-        this.activeControlElements[i] = value
+    async controlElement1Click() {
+        this.tumblers.get('tumbler0').setState("0")
+        this.obj["tumbler0"]["0"]()
     }
 
-    controlElement0Click() {
-        $("#controlElement0").on('click', () => {
-            if (this.getControlElementState(0)) {
-                this.tumblers.get('tumbler0').setState("1")
-                this.obj["tumbler0"]["1"]()
-            }
-        })
+    async controlElement2Click() {
+        this.anvils.get('anvil0').setState("0")
     }
 
-    controlElement1Click() {
-        $("#controlElement1").on('click', () => {
-            if (this.getControlElementState(1)) {
-                this.tumblers.get('tumbler0').setState("0")
-                this.obj["tumbler0"]["0"]()
-            }
-        })
+    async controlElement3Click() {
+        this.anvils.get('anvil0').setState("1")
     }
 
-    controlElement2Click() {
-        $("#controlElement2").on('click', () => {
-            if (this.getControlElementState(2)) {
-                this.anvils.get('anvil0').setState("0")
-            }
-        })
+    async controlElement4Click() {
+        this.anvils.get('anvil0').setState("2")
     }
 
-    controlElement3Click() {
-        $("#controlElement3").on('click', () => {
-            if (this.getControlElementState(3)) {
-                this.anvils.get('anvil0').setState("1")
-            }
-        })
-    }
-
-    controlElement4Click() {
-        $("#controlElement4").on('click', () => {
-            if (this.getControlElementState(4)) {
-                this.anvils.get('anvil0').setState("2")
-            }
-        })
-    }
-
-    controlElement5Click() {
-        $("#controlElement5").on('click', () => {
-            this.anvils.get('anvil0').setState("3")
-        })
+    async controlElement5Click() {
+        this.anvils.get('anvil0').setState("3")
     }
 
 
-    controlElement6Click() {
-        $("#controlElement6").on('click', () => {
-            if (this.getControlElementState(6)) {
-                this.anvils.get('anvil0').setState("4")
-            }
-        })
+    async controlElement6Click() {
+        this.anvils.get('anvil0').setState("4")
     }
 
-    funcInvoke() {
-        this.controlElement1Click()
-        this.controlElement0Click()
-        this.controlElement2Click()
-        this.controlElement3Click()
-        this.controlElement4Click()
-        this.controlElement5Click()
-        this.controlElement6Click()
-    }
+
+
+
 
 
 

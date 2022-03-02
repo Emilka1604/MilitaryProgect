@@ -1,12 +1,11 @@
 
 
 class Main {
-    constructor(activeControlElements, constructFunction) {
+    constructor(constructFunction) {
         this.lamps = new Map()
         this.tumblers = new Map()
         this.buttons = new Map()
         this.controlElements = new Map()
-        this.activeControlElements = activeControlElements
         constructFunction.call(this)
         this.control = "dist"
         this.voltage = "off"
@@ -85,10 +84,13 @@ class Main {
                         this.ventilation = "on"
                         this.lamps.get('lamp15').setState("1")
                         setTimeout(() => {
-                            this.lamps.get('lamp15').setState("0")
                             this.lamps.get('lamp13').setState("1")
+
+                        }, 6000)
+                        setTimeout(() => {
                             this.lamps.get('lamp14').setState("1")
-                        }, 500)
+                            this.lamps.get('lamp15').setState("0")
+                        }, 8000)
                     }
                 },
             },
@@ -148,25 +150,21 @@ class Main {
 
     dampersClose() {
         if (this.voltage === "on") {
-            setTimeout(() => {
-                this.lamps.get("lamp9").setState("1")
-                this.lamps.get("lamp10").setState("1")
-                this.lamps.get("lamp11").setState("0")
-                this.lamps.get("lamp12").setState("0")
-                this.dampers = "close"
-            }, 500)
+            this.lamps.get("lamp9").setState("1")
+            this.lamps.get("lamp10").setState("1")
+            this.lamps.get("lamp11").setState("0")
+            this.lamps.get("lamp12").setState("0")
+            this.dampers = "close"
         }
     }
 
     dampersOpen() {
         if (this.voltage === "on") {
-            setTimeout(() => {
-                this.lamps.get("lamp9").setState("0")
-                this.lamps.get("lamp10").setState("0")
-                this.lamps.get("lamp11").setState("1")
-                this.lamps.get("lamp12").setState("1")
-                this.dampers = "open"
-            }, 500)
+            this.lamps.get("lamp9").setState("0")
+            this.lamps.get("lamp10").setState("0")
+            this.lamps.get("lamp11").setState("1")
+            this.lamps.get("lamp12").setState("1")
+            this.dampers = "open"
         }
     }
 
@@ -178,191 +176,112 @@ class Main {
     }
 
 
-    getControlElementState(i) {
-        return this.activeControlElements[i]
+
+
+    async controlElement0Click() {
+        this.obj["tumbler0"]["0"]()
+        this.tumblers.get('tumbler0').setState("0")
     }
 
-    setControlElementState(i, value) {
-        this.activeControlElements[i] = value
+    async controlElement1Click() {
+        this.obj["tumbler0"]["1"]()
+        this.tumblers.get('tumbler0').setState("1")
     }
 
-    controlElement0Click() {
-        $("#controlElement0").on('click', () => {
-            if (this.getControlElementState(0)) {
-                this.obj["tumbler0"]["0"]()
-                this.tumblers.get('tumbler0').setState("0")
-            }
-        })
+    async controlElement2Click() {
+        this.tumblers.get('tumbler1').setState("1")
+        this.obj["tumbler1"]["1"]()
     }
 
-    controlElement1Click() {
-        $("#controlElement1").on('click', () => {
-            if (this.getControlElementState(1)) {
-                this.obj["tumbler0"]["1"]()
-                this.tumblers.get('tumbler0').setState("1")
-            }
-        })
+    async controlElement3Click() {
+        this.tumblers.get('tumbler1').setState("0")
+        this.obj["tumbler1"]["0"]()
     }
 
-    controlElement2Click() {
-        $("#controlElement2").on('click', () => {
-            if (this.getControlElementState(2)) {
-                this.tumblers.get('tumbler1').setState("1")
-                this.obj["tumbler1"]["1"]()
-            }
-        })
+    async controlElement4Click() {
+        this.dampersClose()
     }
 
-    controlElement3Click() {
-        $("#controlElement3").on('click', () => {
-            if (this.getControlElementState(3)) {
-                this.tumblers.get('tumbler1').setState("0")
-                this.obj["tumbler1"]["0"]()
-            }
-        })
-    }
-
-    controlElement4Click() {
-        $("#controlElement4").on('click', () => {
-            if (this.getControlElementState(4)) {
-                this.dampersClose()
-            }
-        })
-    }
-
-    controlElement5Click() {
-        $("#controlElement5").on('click', () => {
-            if (this.getControlElementState(5)) {
+    async controlElement5Click() {
+        await new Promise(resolve => {
+            setTimeout(() => {
                 this.dampersOpen()
-            }
+                resolve()
+            }, 5000)
         })
     }
 
 
-    controlElement6Click() {
-        $("#controlElement6").on('click', () => {
-            if (this.getControlElementState(6)) {
-                this.tumblers.get('tumbler2').setState("1")
-                this.obj["tumbler2"]["1"]()
-            }
+    async controlElement6Click() {
+        this.tumblers.get('tumbler2').setState("1")
+        this.obj["tumbler2"]["1"]()
+        await new Promise(resolve => {
+            setTimeout(() => {
+                resolve()
+            }, 8000)
         })
     }
 
-    controlElement7Click() {
-        $("#controlElement7").on('click', () => {
-            if (this.getControlElementState(7)) {
-                this.tumblers.get('tumbler2').setState("0")
-                this.obj["tumbler2"]["0"]()
-            }
-        })
+    async controlElement7Click() {
+        this.tumblers.get('tumbler2').setState("0")
+        this.obj["tumbler2"]["0"]()
     }
 
-    controlElement8Click() {
-        $("#controlElement8").on('click', () => {
-            if (this.getControlElementState(8)) {
-                this.tumblers.get('tumbler3').setState("1")
-                this.obj["tumbler3"]["1"]()
-            }
-        })
+    async controlElement8Click() {
+        this.tumblers.get('tumbler3').setState("1")
+        this.obj["tumbler3"]["1"]()
     }
 
-    controlElement9Click() {
-        $("#controlElement9").on('click', () => {
-            if (this.getControlElementState(9)) {
-                this.tumblers.get('tumbler3').setState("0")
-                this.obj["tumbler3"]["0"]()
-            }
-        })
+    async controlElement9Click() {
+        this.tumblers.get('tumbler3').setState("0")
+        this.obj["tumbler3"]["0"]()
     }
 
-    controlElement10Click() {
-        $("#controlElement10").on('click', () => {
-            if (this.getControlElementState(10)) {
-                this.tumblers.get('tumbler4').setState("1")
-            }
-        })
+    async controlElement10Click() {
+        this.tumblers.get('tumbler4').setState("1")
     }
 
-    controlElement11Click() {
-        $("#controlElement11").on('click', () => {
-            if (this.getControlElementState(11)) {
-                this.tumblers.get('tumbler4').setState("0")
-            }
-        })
+    async controlElement11Click() {
+        this.tumblers.get('tumbler4').setState("0")
     }
 
-    controlElement12Click() {
-        $("#controlElement12").on('click', () => {
-            if (this.getControlElementState(12)) {
-                this.tumblers.get('tumbler5').setState("1")
-                this.obj["tumbler5"]["1"]()
-            }
-        })
+    async controlElement12Click() {
+        this.tumblers.get('tumbler5').setState("1")
+        this.obj["tumbler5"]["1"]()
     }
 
-    controlElement13Click() {
-        $("#controlElement13").on('click', () => {
-            if (this.getControlElementState(13)) {
-                this.tumblers.get('tumbler5').setState("0")
-                this.obj["tumbler5"]["0"]()
-            }
-        })
+    async controlElement13Click() {
+        this.tumblers.get('tumbler5').setState("0")
+        this.obj["tumbler5"]["0"]()
     }
 
-    controlElement14Click() {
-        $("#controlElement14").on('click', () => {
-            if (this.getControlElementState(14)) {
-                this.tumblers.get('tumbler6').setState("1")
-                this.obj["tumbler6"]["1"]()
-            }
-        })
+    async controlElement14Click() {
+        this.tumblers.get('tumbler6').setState("1")
+        this.obj["tumbler6"]["1"]()
     }
 
-    controlElement15Click() {
-        $("#controlElement15").on('click', () => {
-            if (this.getControlElementState(15)) {
-                this.tumblers.get('tumbler6').setState("0")
-                this.obj["tumbler6"]["0"]()
-            }
-        })
+    async controlElement15Click() {
+        this.tumblers.get('tumbler6').setState("0")
+        this.obj["tumbler6"]["0"]()
     }
 
-    controlElement16Click() {
-        $("#controlElement16").on('click', () => {
-            if (this.getControlElementState(16)) {
-                this.tumblers.get('tumbler7').setState("1")
-            }
-        })
+    async controlElement16Click() {
+        this.tumblers.get('tumbler7').setState("1")
     }
 
-    controlElement17Click() {
-        $("#controlElement17").on('click', () => {
-            if (this.getControlElementState(17)) {
-                this.tumblers.get('tumbler7').setState("0")
-            }
-        })
+    async controlElement17Click() {
+        this.tumblers.get('tumbler7').setState("0")
     }
 
-    funcInvoke() {
-        this.controlElement1Click()
-        this.controlElement0Click()
-        this.controlElement2Click()
-        this.controlElement3Click()
-        this.controlElement4Click()
-        this.controlElement5Click()
-        this.controlElement6Click()
-        this.controlElement7Click()
-        this.controlElement8Click()
-        this.controlElement9Click()
-        this.controlElement10Click()
-        this.controlElement11Click()
-        this.controlElement12Click()
-        this.controlElement13Click()
-        this.controlElement14Click()
-        this.controlElement15Click()
-        this.controlElement16Click()
-        this.controlElement17Click()
-    }
+    // clickListener(){
+    //     for(let i = 0; i < this.controlElements.size; ++i){
+    //         let currentControlElem = $()
+    //         currentControlElem.one('click', () => {
+
+    //         })
+    //     }
+    // }
+
 
 
 

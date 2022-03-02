@@ -38,10 +38,8 @@ if (mode === "learn") {
 
     let scrollParameter = 400
 
-    let activeControlElements = new Array(20).fill(true)
 
-    let main = new Main(activeControlElements, constructFunction)
-    main.funcInvoke()
+    let main = new Main(constructFunction)
 
 
     let stepQueue = new StepQueue([11, 17])
@@ -51,10 +49,8 @@ if (mode === "learn") {
 }
 else {
 
-    let activeControlElements = new Array(20).fill(true)
 
-    let main = new Main(activeControlElements, constructFunction)
-    main.funcInvoke()
+    let main = new Main(constructFunction)
 
     let stepQueue = new StepQueue([11, 17])
 
