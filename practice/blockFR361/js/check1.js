@@ -1,18 +1,24 @@
 let constructFunction = function () {
     for (let i = 0; i < coordsLamps.length; i++) {
-        this.lamps.set(`lamp${i}`, new Elem(`lamp${i}`, { "0": "../img/off_lamp.png", "1": setActiveLampColor(i) },
-            [0,].includes(i) ? "1" : "0", { "top": `${coordsLamps[i][0]}`, "left": `${coordsLamps[i][1]}`, "max-width": `${coordsLamps[i][2]}` }))
+        this.lamps.set(`lamp${i}`, new Elem(`lamp${i}`, { "0": "../img/off_lamp.png", "1": "../img/off_lamp.png" },
+            "0", { "top": `${coordsLamps[i][0]}`, "left": `${coordsLamps[i][1]}`, "max-width": `${coordsLamps[i][2]}` }))
+    }
+    for (let i = 0; i < coordsInds.length; i++) {
+        this.smallLamps.set(`ind${i}`, new Elem(`ind${i}`, { "0": indsImage(i) }, "0",
+            { "top": `${coordsInds[i][0]}`, "left": `${coordsInds[i][1]}`, "max-width": `${coordsInds[i][2]}` }))
     }
     for (let i = 0; i < coordsTumblers.length; i++) {
-        this.tumblers.set(`tumbler${i}`, new Elem(`tumbler${i}`, setTumblerKind(i),
-            0, { "top": `${coordsTumblers[i][0]}`, "left": `${coordsTumblers[i][1]}`, "max-width": `${coordsTumblers[i][2]}` }))
+        this.tumblers.set(`tumbler${i}`, new Elem(`tumbler${i}`, setTumblersKind(i),
+            tumblersStartState(i), { "top": `${coordsTumblers[i][0]}`, "left": `${coordsTumblers[i][1]}`, "max-width": `${coordsTumblers[i][2]}` }))
     }
-
     for (let i = 0; i < coordsButtons.length; i++) {
         this.buttons.set(`button${i}`, new Elem(`button${i}`, { "0": "../img/button.png" }, "0", { "top": `${coordsButtons[i][0]}`, "left": `${coordsButtons[i][1]}`, "max-width": `${coordsButtons[i][2]}` }))
     }
+    for (let i = 0; i < coordsQuaterButtons.length; i++) {
+        this.quaterButtons.set(`quaterButton${i}`, new Elem(`quaterButton${i}`, { "0": quaterButtonsImage(i) }, "0", { "top": `${coordsQuaterButtons[i][0]}`, "left": `${coordsQuaterButtons[i][1]}`, "max-width": `${coordsQuaterButtons[i][2]}` }))
+    }
     for (let i = 0; i < coordsAnvils.length; i++) {
-        this.anvils.set(`anvil${i}`, new Anvil(`anvil${i}`, '../img/anvil.png', anvilState[i], "1",
+        this.anvils.set(`anvil${i}`, new Anvil(`anvil${i}`, '../img/anvil.png', anvilState[i], anvilsStartState(i),
             { "top": `${coordsAnvils[i][0]}`, "left": `${coordsAnvils[i][1]}`, "max-width": `${coordsAnvils[i][2]}` }))
     }
     for (let i = 0; i < coordsControlElems.length; i++) {
@@ -21,6 +27,8 @@ let constructFunction = function () {
             "height": `${coordsControlElems[i][3]}`,
         }))
     }
+
+    $(`#tumbler0`).css({ "transform": "rotate(90deg)" })
 }
 
 
@@ -28,33 +36,57 @@ let constructFunction = function () {
 let mode = localStorage.getItem("mode");
 
 
-// if (mode === "learn") {
-//     let learnMassages = ["Переключатель КОНТРОЛЬ ЯЧЕЕК (ВЫКЛ-У1…РУ) – в положение ВЫКЛ",
-//         "Переключатель КОНТРОЛЬ ЯЧЕЕК (ВЫКЛ-У13…У21) – в положение ВЫКЛ",
-//         "Переключатель КОНТРОЛЬ ЯЧЕЕК (СИНХР-У25…У37) – в положение СИНХР",
-//         "Переключатель ФАЗА – в положение β",
-//         "Тумблер УСТ ФАЗЫ – в положение 90"]
+if (mode === "learn") {
+
+    let learnMassages = [
+        'переключатель ВКЛ-ВЫКЛ-ДИСТ – в положение ВЫКЛ',
+        'тумблер ВКЛ ПИТ СВЯЗИ – в положение МЕСТН',
+        'тумблер РК – в положение ВКЛ',
+        'кнопки ВКЛЮЧИТЬ 5П43 (1,2,3,4) – в положение ВЫКЛ',
+        'кнопки ВКЛЮЧИТЬ 5П43 (1,2,3,4) – в положение ВЫКЛ',
+        'кнопки ВКЛЮЧИТЬ 5П43 (1,2,3,4) – в положение ВЫКЛ',
+        'кнопки ВКЛЮЧИТЬ 5П43 (1,2,3,4) – в положение ВЫКЛ',
+        'тумблер Σ5П43 – в положение ВЫКЛ',
+        'переключатель КОНТРОЛЬ ЯЧЕЕК (ВЫКЛ-У4…У21) – в положение ВЫКЛ',
+        'переключатель ТИП 5В55 – в положение ВЫКЛ',
+        'переключатель ГОТОВА-УГЛЫ ВВЕДЕНЫ – в положение ВЫКЛ',
+        'тумблер ФМ ИСПР – в положение ВЫКЛ',
+        'тумблер ФР383 ИСПР – в положение ВЫКЛ',
+        'тумблер ДАТЧ ПУ ИСПР – в положение ВКЛ',
+        'тумблер ФБ342А ИСПР – в положение ВКЛ',
+        'тумблер ТПК ВЕРТ – в положение ВКЛ',
+        'тумблер ТПК ГОР – в положение ВЫКЛ',
+        'тумблер ГОТОВА – в положение ВЫКЛ',
+        'тумблер НАЛИЧИЕ ПУ – в положение ВКЛ',
+        'тумблер ГОТОВН ДИСТ ВКЛ ПУ – в положение ВКЛ',
+        'тумблер НАКЛОН ≥50 – в положение ВЫКЛ',
+        'тумблер ФБ341А ВКЛ – в положение ВЫКЛ',
+        'тумблер ВКЛ ФБ342А – в положение ВЫКЛ',
+        'тумблер БР-ТР – в положение ТР',
+        'тумблер ВКЛ ИНД – в положение ВКЛ',
+
+    ]
 
 
-//     let scrollParameter = 400
+    let scrollParameter = 400
 
 
-//     let main = new Main(constructFunction)
+    let main = new Main(constructFunction)
 
 
-//     let stepQueue = new StepQueue([1, 13, 21, 31, 39])
+    let stepQueue = new StepQueue([1, 5, 23, 25, 26, 27, 28, 30, 32, 37, 41, 47, 49, 50, 52, 54, 57, 61, 62, 64, 73, 67, 69, 71, 74])
 
-//     let learnMode = new LearnMode(main, stepQueue, learnMassages, scrollParameter)
-//     learnMode.mainSequence()
-// }
-// else {
+    let learnMode = new LearnMode(main, stepQueue, learnMassages, scrollParameter)
+    learnMode.mainSequence()
+}
+else {
 
 
-//     let main = new Main(constructFunction)
+    let main = new Main(constructFunction)
 
-//     let stepQueue = new StepQueue([1, 13, 21, 31, 39])
+    let stepQueue = new StepQueue([1, 5, 23, 25, 26, 27, 28, 30, 32, 37, 41, 47, 49, 50, 52, 54, 57, 61, 62, 64, 73, 67, 69, 71, 74])
 
-//     let controlMode = new ControlMode(main, stepQueue)
-//     controlMode.mainSequence()
-//     controlMode.errorMassage()
-// }
+    let controlMode = new ControlMode(main, stepQueue)
+    controlMode.mainSequence()
+    controlMode.errorMassage()
+}
