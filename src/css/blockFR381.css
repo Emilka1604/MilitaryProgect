@@ -1,0 +1,23 @@
+.elem[id="1"] {
+    top: 70px;
+    left: 200px;
+    width: 110px;
+}
+
+.elem[id="2"] {
+    top: 70px;
+    left: 455px;
+    width: 110px;
+}
+
+.elem[id="3"] {
+    top: 65px;
+    left: 695px;
+    width: 130px;
+}
+
+.elem[id="4"] {
+    top: 95px;
+    left: 895px;
+    width: 130px;
+}
