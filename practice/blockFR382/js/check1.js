@@ -1,5 +1,3 @@
-
-
 let constructFunction = function () {
     for (let i = 0; i < coordsLamps.length; i++) {
         this.lamps.set(`lamp${i}`, new Elem(`lamp${i}`, { "0": "../img/off_lamp.png", "1": "../img/off_lamp.png" },

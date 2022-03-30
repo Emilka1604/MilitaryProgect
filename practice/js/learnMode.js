@@ -7,7 +7,7 @@ class LearnMode {
         this.popup = new Popup()
         for (let i = 0; i < this.stepQueue.getQueue().length; ++i) {
             $(`#controlElement${this.stepQueue.getQueue()[i]}`).
-                append(`<div id="learnMassage${this.stepQueue.getQueue()[i]}" class="learnMassage">${this.learnMassages[i]}</div>`)
+            append(`<div id="learnMassage${this.stepQueue.getQueue()[i]}" class="learnMassage">${this.learnMassages[i]}</div>`)
         }
 
         this.popup.setText("Обучение завершено успешно")
@@ -27,8 +27,7 @@ class LearnMode {
                 }, 1300, () => {
                     this.controlElemOn(currentControlElem, currentLearnMassage)
                 })
-            }
-            else {
+            } else {
                 this.controlElemOn(currentControlElem, currentLearnMassage)
             }
 
@@ -75,11 +74,9 @@ class LearnMode {
         let innerHeight = currentControlElem.outerHeight()
         if (offsetTop - scrollParameter < 0) {
             currentScrollTop = 0
-        }
-        else if (offsetTop + innerHeight + scrollParameter > $(document).innerHeight()) {
+        } else if (offsetTop + innerHeight + scrollParameter > $(document).innerHeight()) {
             currentScrollTop = $(document).innerHeight() - $(window).innerHeight()
-        }
-        else {
+        } else {
             currentScrollTop = offsetTop - scrollParameter
         }
         return currentScrollTop
