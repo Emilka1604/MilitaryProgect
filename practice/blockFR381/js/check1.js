@@ -20,7 +20,7 @@ let constructFunction = function () {
         }))
     }
     for (let i = 0; i < coordsAnvils.length; i++) {
-        this.anvils.set(`anvil${i}`, new Anvil(`anvil${i}`, '../img/anvil.png', anvilState[i], 1, {
+        this.anvils.set(`anvil${i}`, new Anvil(`anvil${i}`, '../img/anvil.png', anvilState[i], "2", {
             "top": `${coordsAnvils[i][0]}px`,
             "left": `${coordsAnvils[i][1]}px`,
             "max-width": `${coordsAnvils[i][2]}px`
@@ -121,7 +121,7 @@ let constructFunction = function () {
 let mode = localStorage.getItem("mode");
 
 // очередь под конкретные кнопки
-let stepQueue = new StepQueue([10])
+let stepQueue = new StepQueue([1, 6, 15, 21, 42, 43, 50])
 
 if (mode === "learn") {
     let learnMassages = [

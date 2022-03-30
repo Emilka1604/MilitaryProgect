@@ -61,8 +61,8 @@ class LearnMode {
 
 
     isVisible(element) {
-        let top_of_element = element.offsetTop;
-        let bottom_of_element = element.offsetTop + element.outerHeight();
+        let top_of_element = element.offset().top;
+        let bottom_of_element = element.offset().top + element.outerHeight();
         let bottom_of_screen = $(window).scrollTop() + $(window).innerHeight();
         let top_of_screen = $(window).scrollTop();
         return ((bottom_of_screen > bottom_of_element) && (top_of_screen < top_of_element))
@@ -70,7 +70,7 @@ class LearnMode {
 
     scrollWindow(currentControlElem, scrollParameter) {
         let currentScrollTop
-        let offsetTop = currentControlElem.offsetTop
+        let offsetTop = currentControlElem.offset().top
         let innerHeight = currentControlElem.outerHeight()
         if (offsetTop - scrollParameter < 0) {
             currentScrollTop = 0
