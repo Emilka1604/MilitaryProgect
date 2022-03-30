@@ -1,6 +1,3 @@
-
-
-
 class Main {
     constructor(constructFunction) {
         this.lamps = new Map()
@@ -12,8 +9,7 @@ class Main {
         this.voltage = "on"
         this.obj = {
 
-            "tumbler0":
-            {
+            "tumbler0": {
                 "0": () => {
                     this.voltage = "off"
                     this.lamps.get('lamp3').setState("0")
@@ -33,8 +29,7 @@ class Main {
                 }
             },
 
-            "anvil0":
-            {
+            "anvil0": {
                 "0": () => {
 
                 },
@@ -102,4 +97,3 @@ class Main {
 
 
 }
-

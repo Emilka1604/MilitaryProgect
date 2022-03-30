@@ -1,40 +1,57 @@
+const coordsLamps = [
+    [30, 180, 120],
+    [30, 285, 120],
+    [330, 55, 120],
+    [330, 425, 120],
+]
 
+const coordsButtons = [
+    [45, 390, 90],
+    [990, 255, 90]
+]
 
-const coordsLamps = [["30px", "180px", "120px"],
-["30px", "285px", "120px"],
-["330px", "55px", "120px"],
-["330px", "425px", "120px"],]
+const coordsBlueButtons = [
+    [770, 345, 90],
+    [770, 452, 90]
+]
 
-const coordsButtons = [["45px", "390px", "90px"],
-["990px", "255px", "90px"]]
+const coordsTumblers = [
+    [757, 68, 36],
+    [757, 170, 36]
+]
 
-const coordsBlueButtons = [["770px", "345px", "90px"],
-["770px", "452px", "90px"]]
+const coordsAnvils = [
+    [630, 250, 90]
+]
 
-const coordsTumblers = [["757px", "68px", "36px"],
-["757px", "170px", "36px"]]
+const coordsArrows = [
+    [400, 225, 150]
+]
 
-const coordsAnvils = [["630px", "250px", "90px"]]
+const coordsControlElems = [
+    [65, 410, 50, 50],
+    [600, 190, 50, 30],
+    [570, 235, 50, 30],
+    [570, 300, 50, 30],
+    [600, 350, 50, 30],
+    [740, 60, 50, 30],
+    [820, 60, 50, 30],
+    [740, 145, 80, 30],
+    [820, 160, 60, 30],
+    [765, 340, 100, 100],
+    [765, 447, 100, 100],
+    [1010, 275, 50, 50],
+]
 
-const coordsArrows = [["400px", "225px", "150px"]]
-
-const coordsControlElems = [["65px", "410px", "50px", "50px"],
-["600px", "190px", "50px", "30px"],
-["570px", "235px", "50px", "30px"],
-["570px", "300px", "50px", "30px"],
-["600px", "350px", "50px", "30px"],
-["740px", "60px", "50px", "30px"],
-["820px", "60px", "50px", "30px"],
-["740px", "145px", "80px", "30px"],
-["820px", "160px", "60px", "30px"],
-["765px", "340px", "100px", "100px"],
-["765px", "447px", "100px", "100px"],
-["1010px", "275px", "50px", "50px"],]
-
-const anvilState = [{ "0": "30deg", "1": "60deg", "2": "115deg", "3": "150deg", }]
+const anvilState = [{
+    0: 30,
+    1: 60,
+    2: 115,
+    3: 150,
+}]
 
 function setActiveLampColor(i) {
-    if ([0,].includes(i)) {
+    if ([0, ].includes(i)) {
         return "../img/yellow_lamp.png"
     }
     if ([1, 3].includes(i)) {
@@ -44,5 +61,8 @@ function setActiveLampColor(i) {
 }
 
 function setTumblerKind(i) {
-    return { "0": "../img/down_tumbler.png", "1": "../img/up_tumbler.png" }
+    return {
+        "0": "../img/down_tumbler.png",
+        "1": "../img/up_tumbler.png"
+    }
 }

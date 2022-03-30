@@ -1,34 +1,69 @@
 let constructFunction = function () {
     for (let i = 0; i < coordsLamps.length; i++) {
-        this.lamps.set(`lamp${i}`, new Elem(`lamp${i}`, { "0": "../img/off_lamp.png", "1": "../img/off_lamp.png" },
-            "0", { "top": `${coordsLamps[i][0]}`, "left": `${coordsLamps[i][1]}`, "max-width": `${coordsLamps[i][2]}` }))
+        this.lamps.set(`lamp${i}`, new Elem(`lamp${i}`, {
+                "0": "../img/off_lamp.png",
+                "1": "../img/off_lamp.png"
+            },
+            "0", {
+                "top": `${coordsLamps[i][0]}px`,
+                "left": `${coordsLamps[i][1]}px`,
+                "max-width": `${coordsLamps[i][2]}px`
+            }))
     }
     for (let i = 0; i < coordsInds.length; i++) {
-        this.smallLamps.set(`ind${i}`, new Elem(`ind${i}`, { "0": indsImage(i) }, "0",
-            { "top": `${coordsInds[i][0]}`, "left": `${coordsInds[i][1]}`, "max-width": `${coordsInds[i][2]}` }))
+        this.smallLamps.set(`ind${i}`, new Elem(`ind${i}`, {
+            "0": indsImage(i)
+        }, "0", {
+            "top": `${coordsInds[i][0]}px`,
+            "left": `${coordsInds[i][1]}px`,
+            "max-width": `${coordsInds[i][2]}px`
+        }))
     }
     for (let i = 0; i < coordsTumblers.length; i++) {
         this.tumblers.set(`tumbler${i}`, new Elem(`tumbler${i}`, setTumblersKind(i),
-            tumblersStartState(i), { "top": `${coordsTumblers[i][0]}`, "left": `${coordsTumblers[i][1]}`, "max-width": `${coordsTumblers[i][2]}` }))
+            tumblersStartState(i), {
+                "top": `${coordsTumblers[i][0]}px`,
+                "left": `${coordsTumblers[i][1]}px`,
+                "max-width": `${coordsTumblers[i][2]}px`
+            }))
     }
     for (let i = 0; i < coordsButtons.length; i++) {
-        this.buttons.set(`button${i}`, new Elem(`button${i}`, { "0": "../img/button.png" }, "0", { "top": `${coordsButtons[i][0]}`, "left": `${coordsButtons[i][1]}`, "max-width": `${coordsButtons[i][2]}` }))
+        this.buttons.set(`button${i}`, new Elem(`button${i}`, {
+            "0": "../img/button.png"
+        }, "0", {
+            "top": `${coordsButtons[i][0]}px`,
+            "left": `${coordsButtons[i][1]}px`,
+            "max-width": `${coordsButtons[i][2]}px`
+        }))
     }
     for (let i = 0; i < coordsQuaterButtons.length; i++) {
-        this.quaterButtons.set(`quaterButton${i}`, new Elem(`quaterButton${i}`, { "0": quaterButtonsImage(i) }, "0", { "top": `${coordsQuaterButtons[i][0]}`, "left": `${coordsQuaterButtons[i][1]}`, "max-width": `${coordsQuaterButtons[i][2]}` }))
+        this.quaterButtons.set(`quaterButton${i}`, new Elem(`quaterButton${i}`, {
+            "0": quaterButtonsImage(i)
+        }, "0", {
+            "top": `${coordsQuaterButtons[i][0]}px`,
+            "left": `${coordsQuaterButtons[i][1]}px`,
+            "max-width": `${coordsQuaterButtons[i][2]}px`
+        }))
     }
     for (let i = 0; i < coordsAnvils.length; i++) {
-        this.anvils.set(`anvil${i}`, new Anvil(`anvil${i}`, '../img/anvil.png', anvilState[i], anvilsStartState(i),
-            { "top": `${coordsAnvils[i][0]}`, "left": `${coordsAnvils[i][1]}`, "max-width": `${coordsAnvils[i][2]}` }))
+        this.anvils.set(`anvil${i}`, new Anvil(`anvil${i}`, '../img/anvil.png', anvilState[i], anvilsStartState(i), {
+            "top": `${coordsAnvils[i][0]}px`,
+            "left": `${coordsAnvils[i][1]}px`,
+            "max-width": `${coordsAnvils[i][2]}px`
+        }))
     }
     for (let i = 0; i < coordsControlElems.length; i++) {
         this.controlElements.set(`controlElement${i}`, new ControlElem(`controlElement${i}`, {
-            "top": `${coordsControlElems[i][0]}`, "left": `${coordsControlElems[i][1]}`, "width": `${coordsControlElems[i][2]}`,
-            "height": `${coordsControlElems[i][3]}`,
+            "top": `${coordsControlElems[i][0]}px`,
+            "left": `${coordsControlElems[i][1]}px`,
+            "width": `${coordsControlElems[i][2]}px`,
+            "height": `${coordsControlElems[i][3]}px`,
         }))
     }
 
-    $(`#tumbler0`).css({ "transform": "rotate(90deg)" })
+    $(`#tumbler0`).css({
+        "transform": "rotate(90deg)"
+    })
 }
 
 
@@ -78,8 +113,7 @@ if (mode === "learn") {
 
     let learnMode = new LearnMode(main, stepQueue, learnMassages, scrollParameter)
     learnMode.mainSequence()
-}
-else {
+} else {
 
 
     let main = new Main(constructFunction)
