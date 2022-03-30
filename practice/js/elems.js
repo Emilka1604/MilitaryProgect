@@ -40,7 +40,6 @@ class Anvil {
 
     setState(state) {
         this.state = state
-        $(`#${this.id}`).css('transform', `rotate(${this.rotate[state]})`)
+        $(`#${this.id}`).css('transform', `rotate(${this.rotate[state]}deg)`)
     }
 }
-

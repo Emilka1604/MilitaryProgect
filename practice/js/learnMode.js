@@ -7,7 +7,7 @@ class LearnMode {
         this.popup = new Popup()
         for (let i = 0; i < this.stepQueue.getQueue().length; ++i) {
             $(`#controlElement${this.stepQueue.getQueue()[i]}`).
-                append(`<div id="learnMassage${this.stepQueue.getQueue()[i]}" class="learnMassage">${this.learnMassages[i]}</div>`)
+            append(`<div id="learnMassage${this.stepQueue.getQueue()[i]}" class="learnMassage">${this.learnMassages[i]}</div>`)
         }
 
         this.popup.setText("Обучение завершено успешно")
@@ -27,8 +27,7 @@ class LearnMode {
                 }, 1300, () => {
                     this.controlElemOn(currentControlElem, currentLearnMassage)
                 })
-            }
-            else {
+            } else {
                 this.controlElemOn(currentControlElem, currentLearnMassage)
             }
 
@@ -62,8 +61,8 @@ class LearnMode {
 
 
     isVisible(element) {
-        let top_of_element = element.offset().top;
-        let bottom_of_element = element.offset().top + element.outerHeight();
+        let top_of_element = element.offsetTop;
+        let bottom_of_element = element.offsetTop + element.outerHeight();
         let bottom_of_screen = $(window).scrollTop() + $(window).innerHeight();
         let top_of_screen = $(window).scrollTop();
         return ((bottom_of_screen > bottom_of_element) && (top_of_screen < top_of_element))
@@ -71,15 +70,13 @@ class LearnMode {
 
     scrollWindow(currentControlElem, scrollParameter) {
         let currentScrollTop
-        let offsetTop = currentControlElem.offset().top
+        let offsetTop = currentControlElem.offsetTop
         let innerHeight = currentControlElem.outerHeight()
         if (offsetTop - scrollParameter < 0) {
             currentScrollTop = 0
-        }
-        else if (offsetTop + innerHeight + scrollParameter > $(document).innerHeight()) {
+        } else if (offsetTop + innerHeight + scrollParameter > $(document).innerHeight()) {
             currentScrollTop = $(document).innerHeight() - $(window).innerHeight()
-        }
-        else {
+        } else {
             currentScrollTop = offsetTop - scrollParameter
         }
         return currentScrollTop
