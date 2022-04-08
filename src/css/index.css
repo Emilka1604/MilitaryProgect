@@ -11,8 +11,8 @@
   display: flex;
   -webkit-box-orient: vertical;
   -webkit-box-direction: normal;
-  -ms-flex-direction: column;
-  flex-direction: column;
+      -ms-flex-direction: column;
+          flex-direction: column;
   min-height: 100vh;
 }
 
@@ -22,8 +22,8 @@
   display: -ms-flexbox;
   display: flex;
   -webkit-box-pack: center;
-  -ms-flex-pack: center;
-  justify-content: center;
+      -ms-flex-pack: center;
+          justify-content: center;
   min-height: 100vh;
 }
 
@@ -32,17 +32,17 @@
   background-repeat: no-repeat;
   background-position: center center;
   -webkit-box-flex: 1;
-  -ms-flex: 1 1 auto;
-  flex: 1 1 auto;
+      -ms-flex: 1 1 auto;
+          flex: 1 1 auto;
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
   -webkit-box-pack: center;
-  -ms-flex-pack: center;
-  justify-content: center;
+      -ms-flex-pack: center;
+          justify-content: center;
   -webkit-box-align: start;
-  -ms-flex-align: start;
-  align-items: flex-start;
+      -ms-flex-align: start;
+          align-items: flex-start;
 }
 
 .main__menu {
@@ -52,8 +52,8 @@
 .menu {
   background-color: rgba(0, 0, 0, 0.8);
   -webkit-box-flex: 0;
-  -ms-flex: 0 1 1200px;
-  flex: 0 1 1200px;
+      -ms-flex: 0 1 1200px;
+          flex: 0 1 1200px;
 }
 
 .menu__list {
@@ -62,11 +62,11 @@
   display: flex;
 }
 
-.menu__list>li {
+.menu__list > li {
   position: relative;
 }
 
-.menu__list>li:last-child {
+.menu__list > li:last-child {
   margin-left: auto;
 }
 
@@ -98,13 +98,16 @@
   min-width: 100%;
 }
 
-.sub-menu__list_two,
-.sub-menu__list_three {
+.sub-menu__list_two, .sub-menu__list_three {
   width: 240px;
 }
 
+.sub-menu__list_one {
+  width: 200px;
+}
+
 .sub-menu__list_one .sub-sub-menu__list {
-  width: 240px;
+  width: 350px;
 }
 
 .sub-menu__list._active {
@@ -112,7 +115,7 @@
   visibility: visible;
 }
 
-.sub-menu__list>li {
+.sub-menu__list > li {
   position: relative;
   display: block;
 }
@@ -162,7 +165,7 @@
   width: 100px;
 }
 
-.sub-sub-menu__list>li {
+.sub-sub-menu__list > li {
   position: relative;
   display: block;
 }
@@ -213,7 +216,7 @@
   visibility: hidden;
 }
 
-.sub-sub-sub-menu__list>li {
+.sub-sub-sub-menu__list > li {
   position: relative;
   display: block;
 }
@@ -254,5 +257,4 @@
   font-family: Arial, Helvetica, sans-serif;
   font-size: 12px;
 }
-
 /*# sourceMappingURL=index.css.map */

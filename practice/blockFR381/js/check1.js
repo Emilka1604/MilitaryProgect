@@ -1,14 +1,14 @@
 let constructFunction = function () {
     for (let i = 0; i < coordsLamps.length; i++) {
         this.lamps.set(`lamp${i}`, new Elem(`lamp${i}`, {
-                "0": "../img/off_lamp.png",
-                "1": "../img/off_lamp.png"
-            },
-            "0", {
-                "top": `${coordsLamps[i][0]}px`,
-                "left": `${coordsLamps[i][1]}px`,
-                "max-width": `${coordsLamps[i][2]}px`
-            }))
+            "0": "../img/off_lamp.png",
+            "1": setActiveLampColor(i)
+        },
+            setLampsStartState(i), {
+            "top": `${coordsLamps[i][0]}px`,
+            "left": `${coordsLamps[i][1]}px`,
+            "max-width": `${coordsLamps[i][2]}px`
+        }))
     }
     for (let i = 0; i < coordsButtons.length; i++) {
         this.buttons.set(`button${i}`, new Elem(`button${i}`, {
@@ -120,8 +120,8 @@ let constructFunction = function () {
 
 let mode = localStorage.getItem("mode");
 
-// очередь под конкретные кнопки
-let stepQueue = new StepQueue([1, 6, 15, 21, 42, 43, 50])
+
+
 
 if (mode === "learn") {
     let learnMassages = [
@@ -138,11 +138,15 @@ if (mode === "learn") {
 
     let main = new Main(constructFunction)
 
+    let stepQueue = new StepQueue([1, 6, 15, 21, 42, 43, 50])
+
     let learnMode = new LearnMode(main, stepQueue, learnMassages, scrollParameter)
     learnMode.mainSequence()
 } else {
 
     let main = new Main(constructFunction)
+
+    let stepQueue = new StepQueue([[1, 6, 15, 21, 42, 43, 50]])
 
     let controlMode = new ControlMode(main, stepQueue)
     controlMode.mainSequence()

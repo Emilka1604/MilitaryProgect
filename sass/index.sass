@@ -16,6 +16,9 @@
     min-height: 100vh
 
     &__body
+        background-image: url(../../theory/img/background/emblems.JPG)
+        background-repeat: no-repeat
+        background-position: center center
         flex: 1 1 auto
         display: flex
         justify-content: center
@@ -59,8 +62,9 @@
             width: 240px
 
         &_one
+            width: 200px
             & .sub-sub-menu__list
-                width: 240px
+                width: 350px
 
         &._active
             opacity: 1
@@ -75,6 +79,7 @@
         cursor: pointer
         display: block
         padding: 10px 20px 15px 10px
+        //width: 200px
 
         &:hover
             background-color: rgb(240, 230, 206)
@@ -103,6 +108,7 @@
         background-color: #fff
         opacity: 0
         visibility: hidden
+
         &_third
             width: 100px
         &>li

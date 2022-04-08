@@ -7,7 +7,7 @@ class LearnMode {
         this.popup = new Popup()
         for (let i = 0; i < this.stepQueue.getQueue().length; ++i) {
             $(`#controlElement${this.stepQueue.getQueue()[i]}`).
-            append(`<div id="learnMassage${this.stepQueue.getQueue()[i]}" class="learnMassage">${this.learnMassages[i]}</div>`)
+                append(`<div id="learnMassage${this.stepQueue.getQueue()[i]}" class="learnMassage">${this.learnMassages[i]}</div>`)
         }
 
         this.popup.setText("Обучение завершено успешно")

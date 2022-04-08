@@ -357,3 +357,13 @@ const anvilState = [
         5: 190
     },
 ]
+
+const setActiveLampColor = function (i) {
+    if (i == 0) return "../img/yellow_lamp.png"
+    return "../img/green_lamp.png"
+}
+
+const setLampsStartState = function (i) {
+    if (i == 0) return "1"
+    return "0"
+}

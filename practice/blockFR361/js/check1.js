@@ -1,14 +1,14 @@
 let constructFunction = function () {
     for (let i = 0; i < coordsLamps.length; i++) {
         this.lamps.set(`lamp${i}`, new Elem(`lamp${i}`, {
-                "0": "../img/off_lamp.png",
-                "1": "../img/off_lamp.png"
-            },
-            "0", {
-                "top": `${coordsLamps[i][0]}px`,
-                "left": `${coordsLamps[i][1]}px`,
-                "max-width": `${coordsLamps[i][2]}px`
-            }))
+            "0": "../img/off_lamp.png",
+            "1": setActiveLampColor(i)
+        },
+            setLampsStartState(i), {
+            "top": `${coordsLamps[i][0]}px`,
+            "left": `${coordsLamps[i][1]}px`,
+            "max-width": `${coordsLamps[i][2]}px`
+        }))
     }
     for (let i = 0; i < coordsInds.length; i++) {
         this.smallLamps.set(`ind${i}`, new Elem(`ind${i}`, {
@@ -22,10 +22,10 @@ let constructFunction = function () {
     for (let i = 0; i < coordsTumblers.length; i++) {
         this.tumblers.set(`tumbler${i}`, new Elem(`tumbler${i}`, setTumblersKind(i),
             tumblersStartState(i), {
-                "top": `${coordsTumblers[i][0]}px`,
-                "left": `${coordsTumblers[i][1]}px`,
-                "max-width": `${coordsTumblers[i][2]}px`
-            }))
+            "top": `${coordsTumblers[i][0]}px`,
+            "left": `${coordsTumblers[i][1]}px`,
+            "max-width": `${coordsTumblers[i][2]}px`
+        }))
     }
     for (let i = 0; i < coordsButtons.length; i++) {
         this.buttons.set(`button${i}`, new Elem(`button${i}`, {
@@ -118,7 +118,7 @@ if (mode === "learn") {
 
     let main = new Main(constructFunction)
 
-    let stepQueue = new StepQueue([1, 5, 23, 25, 26, 27, 28, 30, 32, 37, 41, 47, 49, 50, 52, 54, 57, 61, 62, 64, 73, 67, 69, 71, 74])
+    let stepQueue = new StepQueue([[1, 5, 23, 25, 26, 27, 28, 30, 32, 37, 41, 47, 49, 50, 52, 54, 57, 61, 62, 64, 73, 67, 69, 71, 74]])
 
     let controlMode = new ControlMode(main, stepQueue)
     controlMode.mainSequence()

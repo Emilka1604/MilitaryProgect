@@ -199,7 +199,12 @@ class Main {
     }
 
     async controlElement4Click() {
-        this.dampersClose()
+        await new Promise(resolve => {
+            setTimeout(() => {
+                this.dampersClose()
+                resolve()
+            }, 5000)
+        })
     }
 
     async controlElement5Click() {

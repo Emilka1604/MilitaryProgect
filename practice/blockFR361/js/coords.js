@@ -188,25 +188,25 @@ const coordsControlElems = [
 
 
 const anvilState = [{
-        0: 0,
-        1: 20,
-        2: 40,
-        3: 90,
-        4: 140
-    },
-    {
-        0: 20,
-        1: 50,
-        2: 110,
-        3: 150
-    },
-    {
-        0: 20,
-        1: 40,
-        2: 80,
-        3: 115,
-        4: 140
-    }
+    0: 0,
+    1: 20,
+    2: 40,
+    3: 90,
+    4: 140
+},
+{
+    0: 20,
+    1: 50,
+    2: 110,
+    3: 150
+},
+{
+    0: 20,
+    1: 40,
+    2: 80,
+    3: 115,
+    4: 140
+}
 ]
 
 const quaterButtonsImage = function (i) {
@@ -233,4 +233,14 @@ const setTumblersKind = function (i) {
         "0": i != 1 ? "../img/down_tumbler.png" : "../img/left_tumbler.png",
         "1": i != 1 ? "../img/up_tumbler.png" : "../img/right_tumbler.png"
     }
+}
+
+const setActiveLampColor = function (i) {
+    if (i == 3) return "../img/yellow_lamp.png"
+    return "../img/green_lamp.png"
+}
+
+const setLampsStartState = function (i) {
+    if (i == 3) return "1"
+    return "0"
 }
