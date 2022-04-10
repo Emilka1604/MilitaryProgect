@@ -8,8 +8,8 @@ body {
   display: -ms-flexbox;
   display: flex;
   -webkit-box-pack: center;
-      -ms-flex-pack: center;
-          justify-content: center;
+  -ms-flex-pack: center;
+  justify-content: center;
   background: url("../../practice/img/fon.jpg") 0 0/100% 100% no-repeat fixed;
 }
 
@@ -51,6 +51,33 @@ body {
   margin: 40px auto;
 }
 
+.theory-body table {
+  border-collapse: collapse;
+  border-spacing: 0;
+  width: 100%;
+  border: 1px solid #ddd;
+}
+
+.theory-body th {
+  text-align: left;
+  font-size: 24px;
+  padding: 20px;
+}
+
+.theory-body td {
+  text-align: left;
+  padding: 16px;
+  font-size: 20px;
+}
+
+.theory-body tr:nth-child(even) {
+  background-color: #fbfbfb;
+}
+
+.theory-body td:nth-child(1) {
+  font-weight: bold;
+}
+
 .back {
   padding: 15px;
   display: block;
@@ -81,4 +108,5 @@ body {
 .wrap__text {
   padding: 0 0 0 20px;
 }
+
 /*# sourceMappingURL=theory.css.map */
