@@ -8,8 +8,8 @@ body {
   display: -ms-flexbox;
   display: flex;
   -webkit-box-pack: center;
-  -ms-flex-pack: center;
-  justify-content: center;
+      -ms-flex-pack: center;
+          justify-content: center;
   background: url("../../practice/img/fon.jpg") 0 0/100% 100% no-repeat fixed;
 }
 
@@ -108,5 +108,4 @@ body {
 .wrap__text {
   padding: 0 0 0 20px;
 }
-
 /*# sourceMappingURL=theory.css.map */

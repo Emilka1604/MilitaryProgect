@@ -64,7 +64,7 @@ if (mode === "learn") {
 
     let main = new Main(constructFunction)
 
-    let stepQueue = new StepQueue([1, 2, 16, 12])
+    let stepQueue = new StepQueue([[1, 2, 16, 12]])
 
     let controlMode = new ControlMode(main, stepQueue)
     controlMode.mainSequence()

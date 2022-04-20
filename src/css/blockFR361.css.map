@@ -1,6 +1,6 @@
 {
     "version": 3,
-    "mappings": "",
+    "mappings": "CA8WA,AAAA,AAAA,EAAC,CAAG,kBAAkB,AAArB,EAAuB;EACpB,OAAO,EAAE,IAAI;CAAG;;CACpB,AAAA,AAAA,EAAC,CAAG,kBAAkB,AAArB,EAAuB;EACpB,OAAO,EAAE,IAAI;CAAG;;CACpB,AAAA,AAAA,EAAC,CAAG,WAAW,AAAd,EAAgB;EACb,OAAO,EAAE,IAAI;CAAG",
     "sources": [
         "../../practice/blockFR361/sass/blockFR361.sass"
     ],
